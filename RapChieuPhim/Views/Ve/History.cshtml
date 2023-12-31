@@ -1,0 +1,209 @@
+﻿@model IEnumerable<RapChieuPhim.Models.Vee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="hero user-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <ul class="breadcumb">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .contact-title {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        background-image: url('https://cdn1.tuoitre.vn/zoom/600_315/2022/11/5/tidaldisruptionsa1440x810-16676430415592119911148-crop-1667643086759928573504.gif');
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Reset CSS */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Global Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Table Styles */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+        .table th,
+        .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+    .BackHome {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+        .BackHome:hover {
+            background-color: #dd003f;
+        }
+
+
+    /* Heading Styles */
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* Additional Styles */
+
+    /* Custom Style 1 */
+    .custom-style-1 {
+        /* Add your custom CSS properties here */
+    }
+
+    /* Custom Style 2 */
+    .custom-style-2 {
+        /* Add your custom CSS properties here */
+    }
+
+    /* Custom Style 3 */
+    .custom-style-3 {
+        /* Add your custom CSS properties here */
+    }
+
+    /* Custom Style 4 */
+    .custom-style-4 {
+        /* Add your custom CSS properties here */
+    }
+
+    /* Custom Style 5 */
+    .custom-style-5 {
+        /* Add your custom CSS properties here */
+    }
+
+    /* Continue adding more custom styles */
+
+    /* Custom Style 100 */
+    .custom-style-100 {
+        /* Add your custom CSS properties here */
+    }
+</style>
+
+
+<div class="contact-title">
+    <h2>History</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Giờ Bắt Đầu
+            </th>
+            <th>
+                Tên Rạp Chiếu
+            </th>
+            <th>
+                Tên Đăng Nhập
+            </th>
+            <th>
+                Tên Người Dùng
+            </th>
+            <th>
+                Ngày Đặt
+            </th>
+            <th>
+                Giá Vé
+            </th>
+            <th>
+                Số Lượng
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr onclick="showTicketModal('ticketModal-@item.Id')">
+                <td>
+                    @Html.DisplayFor(modelItem => item.LichChieu.GioBatDau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RapPhim.TenRapChieu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaiKhoan.TenDangNhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaiKhoan.ThongTin.TenNguoiDung)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaVe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soluong)
+                </td>
+            </tr>
+            <!-- Render PartialView cho từng vé -->
+            <div id="ticketModal-@item.Id" class="modal" style="display:none;">
+                @Html.Partial("_TicketDetails", item)
+            </div>
+        }
+    </table>
+    <a href="/Home" class="BackHome" style="position: relative; left: 50%;">Back to home</a>
+</div>
+<script>
+    function showTicketModal(modalId) {
+        var modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = "block";
+        }
+
+        // Đóng modal khi nhấp chuột ra ngoài
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+</script>

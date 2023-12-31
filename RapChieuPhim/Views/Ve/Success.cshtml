@@ -1,0 +1,55 @@
+﻿@using RapChieuPhim.Models
+
+@{
+    ViewBag.Title = "Payment Success";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .success-message {
+            font-size: 24px;
+            color: #32CD32;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #45a049;
+            }
+    </style>
+</head>
+<body>
+    <h1>Thanh Toán</h1>
+    <p class="success-message">Bạn đã thanh toán thành công</p>
+    <p>Giao dịch đã được thực hiện thành công, cảm ơn quý khách đã sử dụng dịch vụ!</p>
+    <a href="/Home" class="btn">Back to home</a>
+
+</body>
+</html>

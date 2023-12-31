@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+
+<html>
+<style>
+    /* CSS cho phần tổng thể */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .col-md-9 {
+        width: 75%;
+        float: left;
+    }
+
+    .title-hd {
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+        .title-hd h1 {
+            font-size: 24px;
+            margin: 0;
+            float: left;
+        }
+
+    .btn {
+        float: right;
+    }
+
+        .btn a {
+            display: inline-block;
+            padding: 12px 36px;
+            background-color: #dd0000;
+            color: #fff;
+            border: none;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+    /* CSS cho nút quay lại */
+    .back-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 90px;
+        height: 55px;
+        background-color: #dd0000;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        font-size: 40px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    /* CSS cho hiệu ứng nút quay lại */
+    .back-button:hover {
+        background-color: #ff3333;
+    }
+
+    /* CSS cho tab */
+    .tab-links {
+        margin-bottom: 15px;
+        list-style: none;
+        padding: 0;
+    }
+
+        .tab-links li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+            .tab-links li a {
+                display: block;
+                padding: 10px;
+                background-color: #f0f0f0;
+                color: #333;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+            .tab-links li.active a {
+                background-color: #dd0000;
+                color: #fff;
+            }
+
+    /* CSS cho phần tin tức */
+    .blog-item-style-1 {
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+        .blog-item-style-1 img {
+            width: 100%;
+            height: auto;
+        }
+
+    .blog-it-infor {
+        padding: 10px;
+    }
+
+        .blog-it-infor h3 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .blog-it-infor p {
+            margin: 10px 0;
+        }
+
+        .blog-it-infor a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .blog-it-infor img {
+            max-width: 26px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+</style>
+
+<a class="back-button" href="javascript:history.back()">&#8592;</a>
+<div class="col-md-9 col-sm-12 col-xs-12">
+    <div class="title-hd">
+        <h1>Phim chiếu rạp</h1>
+        <div class="btn bg-dan">
+            <a href="/forums/user/gui-bai-viet" class="redbtn btn-border" style="padding:12px 36px">Viết bài chia sẻ</a>
+        </div>
+    </div>
+    <div class="tabs">
+        <ul id="Tab_Nation" data-id-type="13" data-display-feature="False" data-horiziontal="True" data-page-size="10" class="tab-links mb-25">
+            <li class="active" data-id-nation="-1">
+                <a onclick="GetDataByIdType(this, 13 , -1, 'True', '#Nation', 10)">
+                    Bài mới nhất
+                </a>
+            </li>
+        </ul>
+        <div class="tab-links">
+            <div id="Nation" class="tab active">
+
+
+
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_d3ad77aa-608d-4a70-b4e6-352b0540fd5c.jpg" alt="Top 10 siêu xe đắt nhất trong Fast &amp; Furious">
+                    <div class="blog-it-infor">
+                        <h3><a href="/top-10-sieu-xe-dat-nhat-trong-fast-furious-61718.html">Top 10 siêu xe đắt nhất trong Fast &amp; Furious</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Từ Dodge Charger Hellacious đến McLaren Senna, loạt phim Fast &amp; Furious luôn là nơi quy tụ của những chiếc siêu xe đắt nhất trên thế giới.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_137895c1-f39d-4f0c-83e5-8e66c4f451cc.jpg" alt="Kang ngay từ đầu đã…không phải trung tâm của Multiverse Saga">
+                    <div class="blog-it-infor">
+                        <h3><a href="/kang-ngay-tu-dau-dakhong-phai-trung-tam-cua-multiverse-saga-61751.html">Kang ngay từ đầu đã…không phải trung tâm của Multiverse Saga</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Mặc dù được xây dựng một cách rất ấn tượng, nhưng ngay từ đầu thì Kang đã không được Marvel coi như trung tâm của Multiverse Saga.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_913a3836-6e1f-4a57-a435-736ffa0fe639.jpg" alt="Vũ trụ Spider-Verse của Sony liệu có liên kết với MCU?">
+                    <div class="blog-it-infor">
+                        <h3><a href="/vu-tru-spider-verse-cua-sony-lieu-co-lien-ket-voi-mcu-61710.html">Vũ trụ Spider-Verse của Sony liệu có liên kết với MCU?</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Theo lý thuyết, vũ trụ Spider-Verse của Sony hoàn toàn có thể sẽ có liên kết với MCU. Tuy nhiên, ekip sản xuất đã xác nhận một điều hoàn toàn khác.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_be0a4ab5-1fc2-4d28-9fde-eab479b87415.jpg" alt="The Flash: Những sự thật cực thú vị xoay quanh Barry Allen của DCEU">
+                    <div class="blog-it-infor">
+                        <h3><a href="/the-flash-nhung-su-that-cuc-thu-vi-xoay-quanh-barry-allen-cua-dceu-61673.html">The Flash: Những sự thật cực thú vị xoay quanh Barry Allen của DCEU</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Tại sao The Flash Barry có được một bộ suit mới? Anh có thể đấm đau tới mức nào? Đâu là những sự thật thú vị xoay quanh siêu anh hùng này?</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_2da8e905-7425-4145-9036-8fea5327838b.jpg" alt="Guardians of the Galaxy: High Evolutionary còn sống và sẽ trở lại MCU">
+                    <div class="blog-it-infor">
+                        <h3><a href="/guardians-of-the-galaxy-high-evolutionary-con-song-va-se-tro-lai-mcu-61701.html">Guardians of the Galaxy: High Evolutionary còn sống và sẽ trở lại MCU</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Khác với những gì khán giả đã nghĩ, High Evolutionary vẫn còn sống và sẽ trở lại MCU trong tương lai.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_415a9228-cb61-40ea-8f73-1c01696b3014.jpg" alt="Đạo diễn James Gunn xin lỗi khán giả vì…không cho Drax thổi kèn">
+                    <div class="blog-it-infor">
+                        <h3><a href="/dao-dien-james-gunn-xin-loi-khan-gia-vikhong-cho-drax-thoi-ken-61698.html">Đạo diễn James Gunn xin lỗi khán giả vì…không cho Drax thổi kèn</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Mới đây, đạo diễn James Gunn đã xin lỗi khán giả vì đã không để Drax thể hiện kỹ năng chơi saxophone trong Guardians of the Galaxy Vol. 3.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_efa01f41-2631-470c-a624-7bed0ff8ef24.jpg" alt="Guardians of the Galaxy: Bàn về những thành tựu của High Evolutionary">
+                    <div class="blog-it-infor">
+                        <h3><a href="/guardians-of-the-galaxy-ban-ve-nhung-thanh-tuu-cua-high-evolutionary-61616.html">Guardians of the Galaxy: Bàn về những thành tựu của High Evolutionary</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Do sự thay đổi của một số tình tiết trong MCU, phiên bản High Evolutionary trên phim đã bị "mất" khá nhiều thành tựu lớn như phiên bản trong truyện.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_39939ffb-184d-45c2-bb74-8d43aa103678.jpg" alt="Sức mạnh của các Vệ Binh có phần… rất khác so với trong truyện">
+                    <div class="blog-it-infor">
+                        <h3><a href="/suc-manh-cua-cac-ve-binh-co-phan-rat-khac-so-voi-trong-truyen-61631.html">Sức mạnh của các Vệ Binh có phần… rất khác so với trong truyện</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Mặc dù sức mạnh của các thành viên Vệ Binh Dải Ngân Hà trong phim rất thú vị, nhưng có rất nhiều chi tiết đã bị thay đổi so với trong truyện.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_01a3ad0e-2124-4a31-b458-1c56abf15a3d.jpg" alt="Cosmo và những nhân vật bị “chuyển giới tính” trong MCU">
+                    <div class="blog-it-infor">
+                        <h3><a href="/cosmo-va-nhung-nhan-vat-bi-chuyen-gioi-tinh-trong-mcu-61646.html">Cosmo và những nhân vật bị “chuyển giới tính” trong MCU</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Trong MCU, có rất nhiều nhân vật "nữ" có gốc là nhân vật "nam", bao gồm cả chú chó Cosmo của đội Vệ Binh Dải Ngân Hà.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_7845f743-b24f-46dc-9875-313a699d2d1e.jpg" class="img-video" alt="Phim thắng trăm tỷ: Lý Hải chỉ nhận 1/3, Trấn Thành là ẩn số">
+                    <a href="/phim-thang-tram-ty-ly-hai-chi-nhan-1-3-tran-thanh-la-an-so-61593.html" class="round-button"><i class="fa fa-play fa-2x"></i></a>
+                    <div class="blog-it-infor">
+                        <h3><a href="/phim-thang-tram-ty-ly-hai-chi-nhan-1-3-tran-thanh-la-an-so-61593.html">Phim thắng trăm tỷ: Lý Hải chỉ nhận 1/3, Trấn Thành là ẩn số</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/461e8a56-6814-4f92-ba28-1326f3171510.jpg" alt="Hoa Le" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Hoa Le</p>
+                        </a>
+                        <p>Đại thắng phòng vé với doanh thu khủng nhưng các đạo diễn và nhà sản xuất chắc chắn không thể hưởng trọn vẹn con số này.</p>
+                    </div>
+                </div>
+
+
+
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_aca0debf-6b9c-4ca8-a6f8-de5b37848dda.jpg" alt="Quad Blasters và những món “đồ chơi” cực đỉnh của đội Vệ Binh">
+                    <div class="blog-it-infor">
+                        <h3><a href="/quad-blasters-va-nhung-mon-do-choi-cuc-dinh-cua-doi-ve-binh-61578.html">Quad Blasters và những món “đồ chơi” cực đỉnh của đội Vệ Binh</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Trong MCU, nhóm Vệ Binh Dải Ngân Hà vốn sở hữu rất nhiều món "đồ chơi" thú vị, giúp họ có thể đối phó với vô số những thế lực ngoài hành tinh.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_cd38a429-fc18-4e42-859d-f01dfe55ce1a.jpg" alt="Tương lai của nhóm Guardians of the Galaxy trong MCU">
+                    <div class="blog-it-infor">
+                        <h3><a href="/tuong-lai-cua-nhom-guardians-of-the-galaxy-trong-mcu-61520.html">Tương lai của nhóm Guardians of the Galaxy trong MCU</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Trong tương lai, nhóm Guardians of the Galaxy/Vệ Binh Dải Ngân Hà có lẽ sẽ trở lại MCU ở những dự án khác, nhưng sẽ không phải phần phim thứ 4.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_6e03422f-0660-4149-8c00-1ab6cb893b46.jpg" alt="High Evolutionary và những phản diện “có não” nhất màn ảnh rộng MCU">
+                    <div class="blog-it-infor">
+                        <h3><a href="/high-evolutionary-va-nhung-phan-dien-co-nao-nhat-man-anh-rong-mcu-61547.html">High Evolutionary và những phản diện “có não” nhất màn ảnh rộng MCU</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Trong MCU, có rất nhiều phản diện sở hữu trí tuệ đạt tới cấp độ "thiên tài", khiến họ trở thành một trong những kẻ nguy hiểm nhất đối với các siêu anh hùng.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_46652762-6836-42ac-a865-9ecc5c730aa6.jpg" alt="Nguồn gốc của các thành viên Vệ Binh khác truyện như thế nào?">
+                    <div class="blog-it-infor">
+                        <h3><a href="/nguon-goc-cua-cac-thanh-vien-ve-binh-khac-truyen-nhu-the-nao-61562.html">Nguồn gốc của các thành viên Vệ Binh khác truyện như thế nào?</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Các thành viên Vệ Binh Dải Ngân Hà trong phim vốn có nguồn gốc rất khác so với phiên bản trong truyện của họ.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_64986ad9-3872-4b93-bb5f-e278a2ab0d1f.jpg" alt="Tìm hiểu về Gamora - người phụ nữ nguy hiểm nhất thiên hà của MCU">
+                    <div class="blog-it-infor">
+                        <h3><a href="/tim-hieu-ve-gamora-nguoi-phu-nu-nguy-hiem-nhat-thien-ha-cua-mcu-61478.html">Tìm hiểu về Gamora - người phụ nữ nguy hiểm nhất thiên hà của MCU</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Trong vũ trụ Marvel, Gamora rất nổi tiếng và được mệnh danh như người phụ nữ nguy hiểm nhất thiên hà.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_f2612092-f5d3-4312-9d43-e92892bea6b5.jpg" alt="Dưới Lòng Đại Dương: Khi người trẻ làm phim về tâm tư phụ nữ Việt">
+                    <div class="blog-it-infor">
+                        <h3><a href="/duoi-long-dai-duong-khi-nguoi-tre-lam-phim-ve-tam-tu-phu-nu-viet-61534.html">Dưới Lòng Đại Dương: Khi người trẻ làm phim về tâm tư phụ nữ Việt</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/350f4fc0-5ac9-4418-9b4a-c314581fd200.jpg" alt="Andromeda" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Andromeda</p>
+                        </a>
+                        <p>Phim ngắn Dưới Lòng Đại Dương (A Scene By The Sea) của đạo diễn trẻ 9x Quản Phương Thanh đã đạt được nhiều giải thưởng ở các liên hoan phim trên thế giới.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_ba383e31-58f1-4962-8448-d37637c7e644.jpg" alt="Guardians of the Galaxy: Nguồn gốc thú vị về Mantis của MCU">
+                    <div class="blog-it-infor">
+                        <h3><a href="/guardians-of-the-galaxy-nguon-goc-thu-vi-ve-mantis-cua-mcu-61472.html">Guardians of the Galaxy: Nguồn gốc thú vị về Mantis của MCU</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Trước khi chính thức xuất hiện trong vũ trụ điện ảnh Marvel, Mantis từng được biết đến như một nữ siêu anh hùng gốc Việt.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_8a2e841d-44a4-4941-90e0-da0903e27970.jpg" alt="Kho tàng vũ khí của Rocket Raccoon trong MCU">
+                    <div class="blog-it-infor">
+                        <h3><a href="/kho-tang-vu-khi-cua-rocket-raccoon-trong-mcu-61463.html">Kho tàng vũ khí của Rocket Raccoon trong MCU</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Trong MCU, kho tàng vũ khí của Rocket Raccoon chứa rất nhiều loại súng hạng nặng có sát thương cực khủng.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_261f3809-3b8d-463c-9a16-1d0669fc365c.jpg" alt="High Evolutionary - gã khoa học gia muốn trở thành Chúa">
+                    <div class="blog-it-infor">
+                        <h3><a href="/high-evolutionary-ga-khoa-hoc-gia-muon-tro-thanh-chua-61499.html">High Evolutionary - gã khoa học gia muốn trở thành Chúa</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Trong vũ trụ Marvel, High Evolutionary là một trong những thiên tài số 1, thiên tài đến mức khiến hắn có được sức mạnh có thể sánh với Chúa.</p>
+                    </div>
+                </div>
+                <div class="blog-item-style-1 blog-item-style-3">
+                    <img src="https://static1.dienanh.net/upload/202305/2x1_35cdf4e7-d66d-472d-a087-48848149b63a.jpg" alt="Những xác nhận thú vị về Vệ Binh Dải Ngân Hà đạo diễn của James Gunn">
+                    <div class="blog-it-infor">
+                        <h3><a href="/nhung-xac-nhan-thu-vi-ve-ve-binh-dai-ngan-ha-dao-dien-cua-james-gunn-61485.html">Những xác nhận thú vị về Vệ Binh Dải Ngân Hà đạo diễn của James Gunn</a></h3>
+
+                        <a href="#" style="display:flex; align-items:center">
+                            <img src="https://static1.dienanh.net/upload/avatar/e83e4a52-0592-49a0-ac19-3fd7484032af.jpg" alt="Yasha" style="max-width:26px;margin:0 15px 0 0;border-radius:30px">
+                            <p style="margin:0">Yasha</p>
+                        </a>
+                        <p>Không chỉ là "gánh xiếc" trên màn ảnh, những câu chuyện đằng sau hậu trường của đội Vệ Binh cũng rất thú vị.</p>
+                    </div>
+                </div>
+                <div id="loadingNation" class="active d-none">
+                    <div class="clearfix"></div>
+                    <div class="card br" style="margin-bottom:70px;">
+                        <div class="wrapper position-relative">
+                            <div id="preloader">
+
+                                <div id="status">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

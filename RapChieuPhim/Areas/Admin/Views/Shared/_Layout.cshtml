@@ -1,0 +1,804 @@
+﻿
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quản lý Rạp Chiếu Phim </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/admin/images/favicon.png">
+    <link href="~/Content/admin/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="~/Content/admin/vendor/chartist/css/chartist.min.css" rel="stylesheet">
+    <link href="~/Content/admin/css/style.css" rel="stylesheet">
+    <link href="~/Content/admin/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="/Home" class="brand-logo">
+                <img class="logo-abbr" src="~/Content/admin/images/logo.png" alt="">
+                <img class="logo-compact" src="~/Content/admin/images/logo-text.png" alt="">
+                <img class="brand-title" src="~/Content/admin/images/logo-text.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="~/Content/admin/app-profile.html" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Thông tin </span>
+                                    </a>
+                                    <a href="/TaiKhoan/Logout" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Đăng Xuất </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first">Main Menu</li>
+                    <!-- <li><a href="index.html"><i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
+                    </li> -->
+
+
+                    <li class="nav-label">Quản Lý hệ thống</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-app-store"></i><span class="nav-text">Bảng Điều Khiển</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Admin/Home">Phân Tích</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-app-store"></i><span class="nav-text">Rạp Chiếu Phim</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Admin/RapPhims">Quản lý Phòng chiếu phim</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-chart-bar-33"></i><span class="nav-text">Phim </span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Admin/Phims">Quản lý phim</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-chart-bar-33"></i><span class="nav-text">Phòng </span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Admin/Phongs">Quản lý Phòng</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-chart-bar-33"></i><span class="nav-text">Vé </span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Admin/Ves">Quản lý vé</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="nav-label">Quản lý thông tin</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-world-2"></i><span class="nav-text">Quản Lý Tài Khoản</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Admin/TaiKhoans">Quản lý Nhân Viên</a></li>
+                            <li><a href="/Admin/KhachHang">Quản lý Khách hàng</a></li>
+
+                        </ul>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        @RenderBody()
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <!--**********************************
+            Footer end
+        ***********************************-->
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    <!--**********************************
+        Scripts
+    ***********************************-->
+
+    <!-- Required vendors -->
+    <script src="~/Content/admin/vendor/global/global.min.js"></script>
+    <script src="~/Content/admin/js/quixnav-init.js"></script>
+    <script src="~/Content/admin/js/custom.min.js"></script>
+
+    <script src="~/Content/admin/vendor/chartist/js/chartist.min.js"></script>
+
+    <script src="~/Content/admin/vendor/moment/moment.min.js"></script>
+    <script src="~/Content/admin/vendor/pg-calendar/js/pignose.calendar.min.js"></script>
+
+
+    <script src="~/Content/admin/js/dashboard/dashboard-2.js"></script>
+    <script src="~/Content/admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/admin/js/plugins-init/datatables.init.js"></script>
+    <!-- Circle progress -->
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $('#dataTables-khachhang').dataTable({
+                "processing": true,
+                "serverSide": false,
+
+                "ajax": {
+                    "url": '/Admin/KhachHang/GetJsonResult',
+                    "type": 'POST',
+                    "datatype": 'json',
+                    "contentType": "application/json; charset=utf-8",
+                    "dataSrc": ""
+                },
+
+                "columns": [{
+                    "data": "MaKH"
+                }, {
+                    "data": "TenKH"
+                },
+
+                {
+                    "data": "DiaChi"
+                },
+                {
+                    "data": "NgaySinh",
+                    render: function (data) {
+
+                        const text = data.replace(/[^0-9]/g, '');
+                        var convert = parseInt(text);
+                        const time = new Date(convert);
+                        return time.toLocaleDateString();
+                    }
+                },
+                {
+                    "data": "GioiTinh"
+                }, {
+                    "data": "NgayDK",
+                    render: function (data) {
+
+                        const text = data.replace(/[^0-9]/g, '');
+                        var convert = parseInt(text);
+                        const time = new Date(convert);
+
+                        return time.toLocaleDateString();
+                    }
+                },
+                {
+                    "data": "MaKH",
+                    render: function (data) {
+                        return "<button onclick='thayDoiQ(" + data + ")' class='btn btn-primary'>Khách Hàng</button>";
+                    }
+                },
+                {
+                    "data": null,
+                    render: function (data) {
+                        var status = data.TrinhTrang;
+                        var id = data.MaKH;
+                        if (status) {
+                            return "<button onclick='kichHoat(" + id + ")' class='btn btn-primary'>Kích Hoạt</button>";
+
+                        } else {
+                            return "<button onclick='kichHoat(" + id + ")' class='btn btn-primary'>Chưa Kích Hoạt</button>";
+
+                        }
+                    }
+                },
+
+                {
+                    "data": "MaKH",
+                    render: function (data, type, row) {
+                        return "<button type='button' class='btn btn-primary' onclick='xoaTK(" + data + ")'>Xóa</button>";
+                    }
+                },
+                ],
+            })
+        });
+        function kichHoat(data) {
+            if (confirm("Bạn muốn đổi trạng thái tài khoản")) {
+                $.ajax({
+                    url: '/Admin/KhachHang/ActivityUser',
+                    type: "POST",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        if (response) {
+                            alert("Bạn thảy đổi trang thái thành công");
+                            $('#dataTables-khachhang').DataTable().ajax.reload();
+                        } else {
+                            alert("xảy ra quá trình xử lý");
+                        }
+                    }
+                })
+
+            }
+        };
+        function thayDoiQ(data) {
+            if (confirm("Bạn muốn đổi trạng thái tài khoản")) {
+                $.ajax({
+                    url: '/Admin/KhachHang/changeRole',
+                    type: "POST",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        if (response) {
+                            alert("Bạn thảy đổi quyền  thành công");
+                            $('#dataTables-khachhang').DataTable().ajax.reload();
+                        } else {
+                            alert("xảy ra quá trình xử lý");
+                        }
+                    }
+                })
+
+            }
+        };
+        function xoaTK(data) {
+            if (confirm("Bạn muốn xóa tài khoản?")) {
+                $.ajax({
+                    url: 'Admin/KhachHang/Delete',
+                    type: "GET",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        if (response) {
+                            alert("Bạn đã xóa tài khoản thành công");
+                            $('#dataTables-khachhang').DataTable().ajax.reload();
+                        } else {
+                            alert("Xảy ra quá trình xử lý");
+                        }
+                    }
+                })
+            }
+        };</script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $('#datatables-nhanvien').dataTable({
+                "processing": true,
+                "serverSide": false,
+
+                "ajax": {
+                    "url": '/Admin/TaiKhoans/GetJsonResult',
+                    "type": 'POST',
+                    "datatype": 'json',
+                    "contentType": "application/json; charset=utf-8",
+                    "dataSrc": ""
+                },
+
+                "columns": [{
+                    "data": "MaKH"
+                }, {
+                    "data": "TenKH"
+                },
+
+                {
+                    "data": "DiaChi"
+                },
+                {
+                    "data": "NgaySinh",
+                    render: function (data) {
+
+                        const text = data.replace(/[^0-9]/g, '');
+                        var convert = parseInt(text);
+                        const time = new Date(convert);
+
+                        console.log(time.toLocaleString());
+                        return time.toLocaleDateString();
+                    }
+                },
+                {
+                    "data": "GioiTinh"
+                }, {
+                    "data": "NgayDK",
+                    render: function (data) {
+
+                        const text = data.replace(/[^0-9]/g, '');
+                        var convert = parseInt(text);
+                        const time = new Date(convert);
+
+                        console.log(time.toLocaleString());
+                        return time.toLocaleDateString();
+                    }
+                },
+                {
+                    "data": null,
+                    render: function (data) {
+                        var role = data.PhanQuyen;
+                        var id = data.MaKH;
+                        if (role == "MANAGA") {
+                            return "<button onclick='thayDoiQNV(" + id + ")' class='btn btn-primary'>Nhân Viên</button>";
+                        } else {
+                            return "<button onclick='thayDoiQNV(" + id + ")' class='btn btn-primary'>Quản Trị Viên</button>";
+
+                        }
+                    }
+                },
+                {
+                    "data": null,
+                    render: function (data) {
+                        var status = data.TrinhTrang;
+                        var id = data.MaKH;
+                        if (status) {
+                            return "<button onclick='kichHoatNV(" + id + ")' class='btn btn-primary'>Kích Hoạt</button>"
+
+                        } else {
+                            return "<button onclick='kichHoatNV(" + id + ")' class='btn btn-primary'>Chưa Kích Hoạt</button>"
+
+                        }
+                    }
+                },
+
+                {
+                    "data": "MaKH",
+                    render: function (data, type, row) {
+                        return "<button onclick='xoaTaiKhoan(" + data + ")' class='btn btn-primary'>Xóa</button>"
+                    }
+                },
+                ],
+            })
+        });
+        function kichHoatNV(data) {
+            if (confirm("Bạn muốn đổi trạng thái tài khoản")) {
+                $.ajax({
+                    url: '/Admin/TaiKhoans/ActivityUser',
+                    type: "POST",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        if (response) {
+                            alert("Bạn thảy đổi trang thái thành công");
+                            $('#datatables-nhanvien').DataTable().ajax.reload();
+                        } else {
+                            alert("xảy ra quá trình xử lý");
+                        }
+                    }
+                })
+
+            }
+        };
+        function thayDoiQNV(data) {
+            if (confirm("Bạn muốn đổi trạng thái tài khoản")) {
+                $.ajax({
+                    url: '/Admin/TaiKhoans/changeRole',
+                    type: "POST",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        console.log(response);
+
+                        if (response) {
+                            alert("Bạn thảy đổi quyền  thành công");
+                            $('#datatables-nhanvien').DataTable().ajax.reload();
+                        } else {
+                            alert("xảy ra quá trình xử lý");
+                        }
+                    }
+                })
+
+            }
+        };
+        function xoaTaiKhoan(data) {
+            if (confirm("Bạn muốn xóa tài khoản?")) {
+                $.ajax({
+                    url: '/Admin/TaiKhoans/DeleteConfirmed',
+                    type: "POST",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        console.log(response);
+
+                        if (response) {
+                            alert("Bạn đã xóa tài khoản thành công");
+                            $('#dataTables-nhanvien').DataTable().ajax.reload();
+                        } else {
+                            alert("Xảy ra lỗi trong quá trình xử lý");
+                        }
+                    },
+                    error: function () {
+                        alert("Xảy ra lỗi trong quá trình gửi yêu cầu");
+                    }
+                });
+            }
+        };</script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $('#dataTables-phim').dataTable({
+                "processing": true,
+                "serverSide": false,
+
+                "ajax": {
+                    "url": '/Admin/Phims/GetJsonResult',
+                    "type": 'POST',
+                    "datatype": 'json',
+                    "contentType": "application/json; charset=utf-8",
+                    "dataSrc": ""
+                },
+
+                "columns": [{
+                    "data": "MaP"
+                }, {
+                    "data": "TenP"
+                },
+                {
+                    "data": "AnhPhim",
+                    render: function (data) {
+                        return "<img src='/Content/Upload/Image/" + data + "'   height='150'>";
+
+                    }
+                },
+                {
+                    "data": "MoTa"
+                }, {
+                    "data": "LoaiPhim"
+                }, {
+                    "data": "ThoiLuong"
+                },
+                {
+                    "data": "NgayCongChieu",
+                    render: function (data) {
+
+                        const text = data.replace(/[^0-9]/g, '');
+                        var convert = parseInt(text);
+                        const time = new Date(convert);
+
+                        console.log(time.toLocaleString());
+                        return time.toLocaleDateString();
+                    }
+                },
+                {
+                    "data": "NgayKetThuc",
+                    render: function (data) {
+
+                        const text = data.replace(/[^0-9]/g, '');
+                        var convert = parseInt(text);
+                        const time = new Date(convert);
+
+                        console.log(time.toLocaleString());
+                        return time.toLocaleDateString();
+                    }
+                },
+                {
+                    "data": "DaoDien"
+                },
+
+                {
+                    "data": "TrangThai",
+                    render: function (data) {
+                        if (data) {
+                            return "<button>Công chiếu</button>";
+                        } else {
+                            return "<button>Ngừng chiếu chiếu</button>";
+
+                        }
+                    }
+                },
+
+                {
+                    "data": "MaP",
+                    render: function (data, type, row) {
+                        return "<a href='/Admin/Phims/Edit/" + data + "'  class='btn btn-primary'>Sửa</a>";
+                    }
+                },
+                {
+                    "data": "MaP",
+                    render: function (data, type, row) {
+                        return "<button type='button' class='btn btn-primary'  onclick='xoaPhim(" + data + ")'>Xóa</button>";
+                    }
+                },
+                ],
+            })
+        });
+        function xoaPhim(data) {
+            if (confirm("Bạn muốn xóa phim này")) {
+                $.ajax({
+                    url: '/Admin/Phims/Delete',
+                    type: "GET",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        if (response) {
+                            alert("Bạn đã xóa thành công");
+                            $('#dataTables-phim').DataTable().ajax.reload();
+                        } else {
+                            alert("xảy ra quá trình xử lý");
+                        }
+                    }
+                })
+
+            }
+        };</script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $('#dataTables-phong').dataTable({
+                "processing": true,
+                "serverSide": false,
+                "ajax": {
+                    "url": '/Admin/Phongs/GetJsonResult',
+                    "type": 'POST',
+                    "datatype": 'json',
+                    "contentType": "application/json; charset=utf-8",
+                    "dataSrc": ""
+                },
+
+                "columns": [{
+                    "data": "MaP"
+                }, {
+                    "data": "TenP"
+                },
+
+                {
+                    "data": "Soluong"
+                },
+                {
+                    "data": "Mota"
+                },
+                {
+                    "data": "TenRap"
+                }, {
+                    "data": "TrangThai",
+                    render: function (data) {
+                        console.log(data);
+                        if (data) {
+                            return "<button class='btn btn-primary'>Hoat Dong</button>";
+                        } else {
+                            return "<button class='btn btn-primary'>Ngừng Hoat dong</button>";
+
+                        }
+                    }
+                },
+                {
+                    "data": "MaP",
+                    render: function (data, type, row) {
+                        return "<a class='btn btn-primary' href='/Admin/Phongs/Edit/" + data + "' >Sửa</a> ";
+                    }
+                },
+                {
+                    "data": "MaP",
+                    render: function (data, type, row) {
+                        return "<button class='btn btn-primary' type='button'  onclick='xoaPhong(" + data + ")'>Xóa</button>";
+                    }
+                },
+                ],
+            })
+        });
+        function xoaPhong(data) {
+            if (confirm("Bạn muốn xóa phòng chiếu này")) {
+                $.ajax({
+                    url: '/Admin/Phongs/Delete',
+                    type: "GET",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        if (response) {
+                            alert("Bạn đã xóa thành công");
+                            $('#dataTables-phong').DataTable().ajax.reload();
+                        } else {
+                            alert("xảy ra quá trình xử lý");
+                        }
+                    }
+                })
+
+            }
+        };</script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $('#datatables-rap').dataTable({
+                "processing": true,
+                "serverSide": false,
+
+                "ajax": {
+                    "url": '/Admin/RapPhims/GetJsonResult',
+                    "type": 'POST',
+                    "datatype": 'json',
+                    "contentType": "application/json; charset=utf-8",
+                    "dataSrc": ""
+                },
+
+                "columns": [{
+                    "data": "MaP"
+                },
+                {
+                    "data": "TenRap"
+                },
+                {
+                    "data": "ThanhPho"
+                },
+                {
+                    "data": "QuanHuyen"
+                }, {
+                    "data": "TX"
+                },
+                {
+                    "data": "TongSoPhong"
+                },
+                {
+                    "data": "KhungGio"
+                },
+                {
+                    "data": "MaP",
+                    render: function (data, type, row) {
+                        return "<a class='btn btn-primary'  href='/Admin/RapPhims/Edit/" + data + "'  >Sửa</a> ";
+                    }
+                },
+                {
+                    "data": "MaP",
+                    render: function (data, type, row) {
+                        return "<button class='btn btn-primary' type='button'  onclick='xoaRap(" + data + ")'>xóa</button>";
+                    }
+                },
+                ],
+            })
+        });
+        function xoaRap(data) {
+            if (confirm("Bạn muốn xóa rap chiếu phim này")) {
+                $.ajax({
+                    url: '/Admin/RapPhims/Delete',
+                    type: "GET",
+                    data: {
+                        id: data
+                    },
+                    success: function (response) {
+                        if (response) {
+                            alert("Bạn đã xóa thành công");
+                            $('#datatables-rap').DataTable().ajax.reload();
+                        } else {
+                            alert("xảy ra quá trình xử lý");
+                        }
+                    }
+                })
+
+            }
+        };</script>
+    <script src="~/Content/Client/js/custom.js"></script>
+    <script type="text/javascript">
+    $('#loginAdmin').on('submit', function checkLogin(e) {
+            e.preventDefault();
+            var username = $('#usernamelogin').val();
+            var password = $('#passwordlogin').val();
+            $.ajax({
+                url: '/Admin/Login',
+                type: "POST",
+                data: {
+                    username: username,
+                    password: password,
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response == "True") {
+                        alert("Bạn đã đăng nhập thành công");
+                        window.location.href = "/Home";
+                    } else {
+                        alert("Tên Tài Khoản và Mật Khẩu không đúng");
+                    }
+                }
+            })
+        });</script>
+</body>
+
+</html>

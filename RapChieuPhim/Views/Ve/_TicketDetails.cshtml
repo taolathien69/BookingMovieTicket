@@ -1,0 +1,126 @@
+﻿@model RapChieuPhim.Models.Vee
+
+<style>
+
+    .ticket-details {
+        font-family: 'Arial', sans-serif;
+        background-color: #fff; /* Màu nền trắng */
+        background-image: url('@Url.Content("~/Content/Client/Images/uploads/Bannerves.png")');
+        background-size: cover; /* Kích thước của hình ảnh nền */
+        background-repeat: no-repeat;
+        color: black; /* Màu chữ */
+        border: 1px solid #ddd; /* Viền xung quanh */
+        border-radius: 10px; /* Góc bo tròn */
+        padding: 20px;
+        max-width: 600px; /* Giới hạn chiều rộng */
+        margin: 20px auto; /* Căn giữa */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Bóng đổ nhẹ */
+        position: relative;
+    }
+
+        .ticket-details h3 {
+            color: black;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .ticket-details p {
+            color: darkseagreen;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        /* Có thể thêm các biểu tượng hoặc hình ảnh liên quan đến xem phim */
+        .ticket-details:before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            background-image: url('path_to_your_ticket_icon.png');
+            background-size: cover;
+        }
+
+    .header {
+        text-align: center; /* Căn giữa logo */
+        padding: 10px; /* Thêm padding nếu cần */
+        /* Các styles khác cho header */
+    }
+
+    .logo {
+        max-width: 100px; /* Giới hạn kích thước logo */
+        /* Các styles khác cho logo */
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: none;
+        background: none;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .screenshot-button {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+
+<div class="ticket-details" style="margin-top: 410px;">
+    <!-- Nút đóng -->
+    <button class="close-button" onclick="closeTicketDetails()">X</button>
+
+    <!-- Nút chụp vé -->
+    <button class="screenshot-button" onclick="screenshotTicket()">📸 Chụp vé</button>
+
+    <div class="header">
+        <img src="~/Content/Client/Images/logo1.png" alt="Logo" class="logo" />
+        <!--  -->
+    </div>
+    <h3>Mã số vé: @Model.Id</h3>
+    <p>Ngày Đặt: @(Model.NgayDat.HasValue ? Model.NgayDat.Value.ToString("dd/MM/yyyy HH:mm") : "Không rõ")</p>
+    <p>Giá Vé: @Model.GiaVe</p>
+    <p>Tên Rạp: @Model.RapPhim.TenRapChieu</p>
+    <p>Tên phim: @Model.LichChieu.Phim.TenPhim</p>
+    <p>Giờ bắt đầu: @Model.LichChieu.GioBatDau</p>
+    <p>Giờ kết thúc: @Model.LichChieu.GioKetThuc</p>
+    <p>
+        Ghế: @foreach (var ghe in Model.Ghes)
+        {
+            @ghe.TenGhe <br />
+        }
+    </p>
+    <!-- Thêm các thông tin khác của vé ở đây hehehehe -->
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+<script>
+    function screenshotTicket() {
+        html2canvas(document.querySelector(".ticket-details")).then(canvas => {
+            // Hiển thị ảnh trên trang web
+            // document.body.appendChild(canvas);
+
+            // Hoặc lưu ảnh xuống máy
+            var link = document.createElement('a');
+            link.download = 'ticket.jpg';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    }
+    function closeTicketDetails() {
+        var ticketDetailElement = document.querySelector('.ticket-details');
+        if (ticketDetailElement) {
+            ticketDetailElement.style.display = 'none';
+        }
+    }
+
+</script>

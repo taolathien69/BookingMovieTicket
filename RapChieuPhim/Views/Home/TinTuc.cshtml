@@ -1,0 +1,12 @@
+﻿@model IEnumerable<RapChieuPhim.Models.TinTuc>
+
+<h2>Tin Tức</h2>
+
+@foreach (var tinTuc in Model)
+{
+    <div>
+        <h3>@tinTuc.TieuDe</h3>
+        <p>@tinTuc.NoiDung</p>
+        <!-- Các thông tin khác của tin tức -->
+    </div>
+}

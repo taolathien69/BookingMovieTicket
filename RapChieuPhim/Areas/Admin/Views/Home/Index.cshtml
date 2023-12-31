@@ -1,0 +1,623 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- index-0.html  Tue, 07 Jan 2020 03:35:33 GMT -->
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-XXX" crossorigin="anonymous" />
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="~/Content/admin/assets/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/modules/fontawesome/css/all.min.css">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="~/Content/admin/assets/modules/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/modules/weather-icon/css/weather-icons.min.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/modules/weather-icon/css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/modules/summernote/summernote-bs4.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/Content/admin/assets/css/style.min.css">
+    <link rel="stylesheet" href="~/Content/admin/assets/css/components.min.css">
+
+
+</head>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Chào Mừng Bạn đến Với HỆ THÔNG</h4>
+                    <span class="ml-1">PHIM</span>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Bảng Điều Khiển</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Phân Tích</a></li>
+                </ol>
+            </div>
+        </div>
+        <body class="layout-4">
+            <!-- Page Loader -->
+            <div class="page-loader-wrapper">
+                <span class="loader"><span class="loader-inner"></span></span>
+            </div>
+
+            <div id="app">
+                <div class="main-wrapper main-wrapper-1">
+                    <div class="navbar-bg"></div>
+
+                    <!-- Start app main Content -->
+                    <div class="main-content">
+                        <section class="section">
+                            <div class="section-header">
+                                <h1>Bảng Điều Khiển</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                    <div class="card card-statistic-1">
+                                        <div class="card-icon bg-primary">
+                                            <i class="far fa-user"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4>Số Admin</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                    <div class="card card-statistic-1">
+                                        <div class="card-icon bg-danger">
+                                            <i class="far fa-newspaper"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4>Tin Tức</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                42
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                    <div class="card card-statistic-1">
+                                        <div class="card-icon bg-warning">
+                                            <i class="far fa-file"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4>Báo Cáo</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                1,201
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                    <div class="card card-statistic-1">
+                                        <div class="card-icon bg-success">
+                                            <i class="fas fa-circle"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4>Trực tuyến</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                47
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Số liệu thống kê</h4>
+                                            <div class="card-header-action">
+                                                <button class="btn btn-sm btn-outline-secondary mr-1" id="one_month">1 tháng</button>
+                                                <button class="btn btn-sm btn-outline-secondary mr-1" id="six_months">6 tháng</button>
+                                                <button class="btn btn-sm btn-outline-secondary mr-1" id="one_year" class="active">1 năm</button>
+                                                <button class="btn btn-sm btn-outline-secondary mr-1" id="ytd">từ trước đến nay</button>
+                                                <button class="btn btn-sm btn-outline-secondary" id="all">Tất cả</button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="statistic-details mb-sm-4">
+                                                <div class="statistic-details-item">
+                                                    <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 7%</span>
+                                                    <div class="detail-value">5.589.000 VND</div>
+                                                    <div class="detail-name">Vé hôm nay</div>
+                                                </div>
+                                                <div class="statistic-details-item">
+                                                    <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-down"></i></span> 23%</span>
+                                                    <div class="detail-value">66,746,000 VND</div>
+                                                    <div class="detail-name">Doanh số tuần này</div>
+                                                </div>
+                                                <div class="statistic-details-item">
+                                                    <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>9%</span>
+                                                    <div class="detail-value">294,683,000 VND</div>
+                                                    <div class="detail-name">Doanh số tháng này</div>
+                                                </div>
+                                                <div class="statistic-details-item">
+                                                    <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 19%</span>
+                                                    <div class="detail-value">2,119,866,000 VND</div>
+                                                    <div class="detail-name">Doanh số năm nay</div>
+                                                </div>
+                                            </div>
+                                            <div id="apex-timeline-chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-12 col-12 col-sm-12">
+                                    <form method="post" class="needs-validation" novalidate="">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Dự thảo nhanh</h4>
+                                            </div>
+                                            <div class="card-body pb-0">
+                                                <div class="form-group">
+                                                    <label>Tiêu đề</label>
+                                                    <input type="text" name="title" class="form-control" required>
+                                                    <div class="invalid-feedback">Please fill in the title</div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Nội dung</label>
+                                                    <textarea class="summernote-simple"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer pt-0">
+                                                <button class="btn btn-primary">Lưu bản nháp</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-7 col-md-12 col-12 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Bài viết mới nhất</h4>
+                                            <div class="card-header-action">
+                                                <a href="#" class="btn btn-primary">Xem tất cả</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Tiêu đề</th>
+                                                            <th>Tác giả</th>
+                                                            <th>Đang hoạt động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Giới thiệu rạp phim...
+                                                                <div class="table-links">
+                                                                    in <a href="#">Web Development</a>
+                                                                    <div class="bullet"></div>
+                                                                    <a href="#">View</a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" class="font-weight-600"><img src="~/Content/admin/assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Trần Hiển</a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Bạn có chắc không?|Hành động này không thể được hoàn tác. Bạn có muốn tiếp tục?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Hướng dẫn - Đăng ký
+                                                                <div class="table-links">
+                                                                    in <a href="#">Web Development</a>
+                                                                    <div class="bullet"></div>
+                                                                    <a href="#">View</a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" class="font-weight-600"><img src="~/Content/admin/assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Trần Hiển</a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Bạn có chắc không?|Hành động này không thể được hoàn tác. Bạn có muốn tiếp tục?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Hướng dẫn - Đăng nhập
+                                                                <div class="table-links">
+                                                                    in <a href="#">Web Development</a>
+                                                                    <div class="bullet"></div>
+                                                                    <a href="#">View</a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" class="font-weight-600"><img src="~/Content/admin/assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Trần Hiển</a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Bạn có chắc không?|Hành động này không thể được hoàn tác. Bạn có muốn tiếp tục?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Hướng dẫn - Đặt phim
+                                                                <div class="table-links">
+                                                                    in <a href="#">Web Development</a>
+                                                                    <div class="bullet"></div>
+                                                                    <a href="#">View</a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" class="font-weight-600"><img src="~/Content/admin/assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Trần Hiển</a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Bạn có chắc không?|Hành động này không thể được hoàn tác. Bạn có muốn tiếp tục?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Hướng dẫn - Chọn ghế
+                                                                <div class="table-links">
+                                                                    in <a href="#">Web Development</a>
+                                                                    <div class="bullet"></div>
+                                                                    <a href="#">View</a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" class="font-weight-600"><img src="~/Content/admin/assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Trần Hiển</a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Bạn có chắc không?|Hành động này không thể được hoàn tác. Bạn có muốn tiếp tục?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Hướng dẫn - Thanh toán
+                                                                <div class="table-links">
+                                                                    in <a href="#">Web Development</a>
+                                                                    <div class="bullet"></div>
+                                                                    <a href="#">View</a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" class="font-weight-600"><img src="~/Content/admin/assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Trần Hiển</a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Bạn có chắc không?|Hành động này không thể được hoàn tác. Bạn có muốn tiếp tục?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Khách truy cập & Giới thiệu</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row mb-sm-5">
+                                                <div class="col text-center">
+                                                    <div class="Trình duyệt Chrome"></div>
+                                                    <div class="mt-2 font-weight-bold">Chrome</div>
+                                                    <div class="text-muted text-small"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 48%</div>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <div class="browser browser-firefox"></div>
+                                                    <div class="mt-2 font-weight-bold">Firefox</div>
+                                                    <div class="text-muted text-small"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 26%</div>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <div class="browser browser-safari"></div>
+                                                    <div class="mt-2 font-weight-bold">Safari</div>
+                                                    <div class="text-muted text-small"><span class="text-danger"><i class="fas fa-caret-down"></i></span> 14%</div>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <div class="browser browser-opera"></div>
+                                                    <div class="mt-2 font-weight-bold">Opera</div>
+                                                    <div class="text-muted text-small">7%</div>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <div class="browser browser-internet-explorer"></div>
+                                                    <div class="mt-2 font-weight-bold">IE</div>
+                                                    <div class="text-muted text-small"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 5%</div>
+                                                </div>
+                                            </div>
+                                            <div id="visitorMap"></div>
+                                            <div class="mt-5">
+                                                <div class="mb-4">
+                                                    <div class="text-small float-right font-weight-bold text-muted">2,100</div>
+                                                    <div class="font-weight-bold mb-1">Google</div>
+                                                    <div class="progress" data-height="3">
+                                                        <div class="progress-bar" role="progressbar" data-width="80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <div class="text-small float-right font-weight-bold text-muted">1,880</div>
+                                                    <div class="font-weight-bold mb-1">Facebook</div>
+                                                    <div class="progress" data-height="3">
+                                                        <div class="progress-bar" role="progressbar" data-width="67%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <div class="text-small float-right font-weight-bold text-muted">1,521</div>
+                                                    <div class="font-weight-bold mb-1">Bing</div>
+                                                    <div class="progress" data-height="3">
+                                                        <div class="progress-bar" role="progressbar" data-width="58%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <div class="text-small float-right font-weight-bold text-muted">884</div>
+                                                    <div class="font-weight-bold mb-1">Yahoo</div>
+                                                    <div class="progress" data-height="3">
+                                                        <div class="progress-bar" role="progressbar" data-width="36%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <div class="text-small float-right font-weight-bold text-muted">473</div>
+                                                    <div class="font-weight-bold mb-1">Kodinger</div>
+                                                    <div class="progress" data-height="3">
+                                                        <div class="progress-bar" role="progressbar" data-width="28%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <div class="text-small float-right font-weight-bold text-muted">418</div>
+                                                    <div class="font-weight-bold mb-1">Multinity</div>
+                                                    <div class="progress" data-height="3">
+                                                        <div class="progress-bar" role="progressbar" data-width="20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="d-inline">Nhiệm vụ</h4>
+                                            <div class="card-header-action">
+                                                <a href="#" class="btn btn-primary">Xem tất cả</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled list-unstyled-border">
+                                                <li class="media">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="cbx-1">
+                                                        <label class="custom-control-label" for="cbx-1"></label>
+                                                    </div>
+                                                    <img class="mr-3 rounded-circle" width="50" src="~/Content/admin/assets/img/avatar/avatar-4.png" alt="avatar">
+                                                    <div class="media-body">
+                                                        <div class="badge badge-pill badge-danger mb-1 float-right">Chưa hoàn thành</div>
+                                                        <h6 class="media-title"><a href="#">Thiết kế lại tiêu đề</a></h6>
+                                                        <div class="text-small text-muted">Trần Hiển <div class="bullet"></div> <span class="text-primary">Vừa xong</span></div>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="cbx-2" checked="">
+                                                        <label class="custom-control-label" for="cbx-2"></label>
+                                                    </div>
+                                                    <img class="mr-3 rounded-circle" width="50" src="~/Content/admin/assets/img/avatar/avatar-5.png" alt="avatar">
+                                                    <div class="media-body">
+                                                        <div class="badge badge-pill badge-primary mb-1 float-right">Đã hoàn thành</div>
+                                                        <h6 class="media-title"><a href="#">Thêm một thành phần mới</a></h6>
+                                                        <div class="text-small text-muted">Trần Hiển <div class="bullet"></div> 4 Phút</div>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="cbx-3">
+                                                        <label class="custom-control-label" for="cbx-3"></label>
+                                                    </div>
+                                                    <img class="mr-3 rounded-circle" width="50" src="~/Content/admin/assets/img/avatar/avatar-2.png" alt="avatar">
+                                                    <div class="media-body">
+                                                        <div class="badge badge-pill badge-warning mb-1 float-right">Đang tiến triển</div>
+                                                        <h6 class="media-title"><a href="#">Sửa cửa sổ phương thức</a></h6>
+                                                        <div class="text-small text-muted">Trần Hiển <div class="bullet"></div> 8 Phút</div>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="cbx-4">
+                                                        <label class="custom-control-label" for="cbx-4"></label>
+                                                    </div>
+                                                    <img class="mr-3 rounded-circle" width="50" src="~/Content/admin/assets/img/avatar/avatar-1.png" alt="avatar">
+                                                    <div class="media-body">
+                                                        <div class="badge badge-pill badge-danger mb-1 float-right">Chưa hoàn thành</div>
+                                                        <h6 class="media-title"><a href="#">Xóa các lớp không mong muốn</a></h6>
+                                                        <div class="text-small text-muted">Trần Hiển <div class="bullet"></div> 21 Phút</div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Thống kê tuần này</h4>
+                                            <div class="card-header-action">
+                                                <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">Lọc</a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Siêu anh hùng</a>
+                                                        <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Hoạt hình</a>
+                                                        <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Hành động</a>
+                                                        <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Kinh dị</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item">Xem tất cả</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="summary">
+                                                <div class="summary-info">
+                                                    <h4>415.000 VND</h4>
+                                                    <div class="text-muted">Đã bán 3 vé cho 2 khách</div>
+                                                    <div class="d-block mt-2"><a href="#">Xem tất cả</a></div>
+                                                </div>
+                                                <div class="summary-item">
+                                                    <h6>Danh sách các bộ phim <span class="text-muted">(3 Bộ)</span></h6>
+                                                    <ul class="list-unstyled list-unstyled-border">
+                                                        <li class="media">
+                                                            <a href="#"><img class="mr-3 rounded" width="50" src="~/Content/admin/assets/img/products/product-1-50.png" alt="product"></a>
+                                                            <div class="media-body">
+                                                                <div class="media-right">75.000 VND</div>
+                                                                <div class="media-title"><a href="#">Aquaman</a></div>
+                                                                <div class="text-muted text-small">by <a href="#">Nguyễn văn A</a> <div class="bullet"></div> Sunday</div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="media">
+                                                            <a href="#"><img class="mr-3 rounded" width="50" src="~/Content/admin/assets/img/products/product-2-50.png" alt="product"></a>
+                                                            <div class="media-body">
+                                                                <div class="media-right">95.000 VND</div>
+                                                                <div class="media-title"><a href="#">BatMan</a></div>
+                                                                <div class="text-muted text-small">
+                                                                    by <a href="#">Nguyễn Văn A</a> <div class="bullet"></div> Sunday
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="media">
+                                                            <a href="#"><img class="mr-3 rounded" width="50" src="~/Content/admin/assets/img/products/product-3-50.png" alt="product"></a>
+                                                            <div class="media-body">
+                                                                <div class="media-right">95.000 VND</div>
+                                                                <div class="media-title"><a href="#">LEGO: Liên minh công lý</a></div>
+                                                                <div class="text-muted text-small">
+                                                                    by <a href="#">Nguyễn Văn B</a> <div class="bullet"></div> Tuesday
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="media">
+                                                            <a href="#"><img class="mr-3 rounded" width="50" src="~/Content/admin/assets/img/products/product-5-50.png" alt="product"></a>
+                                                            <div class="media-body">
+                                                                <div class="media-right">75.000 VND</div>
+                                                                <div class="media-title"><a href="#">Motal Kombat Legends</a></div>
+                                                                <div class="text-muted text-small">
+                                                                    by <a href="#">Nguyễn Văn A</a> <div class="bullet"></div> Sunday
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="media">
+                                                            <a href="#"><img class="mr-3 rounded" width="50" src="~/Content/admin/assets/img/products/product-4-50.png" alt="product"></a>
+                                                            <div class="media-body">
+                                                                <div class="media-right">95.000 VND</div>
+                                                                <div class="media-title"><a href="#">Cương thi tiên sinh</a></div>
+                                                                <div class="text-muted text-small">
+                                                                    by <a href="#">Nguyễn Văn B</a> <div class="bullet"></div> Tuesday
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Recent Activities</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled list-unstyled-border">
+                                                <li class="media">
+                                                    <img class="mr-3 rounded-circle" width="50" src="~/Content/admin/assets/img/avatar/avatar-1.png" alt="avatar">
+                                                    <div class="media-body">
+                                                        <div class="float-right text-primary">Bây giờ</div>
+                                                        <div class="media-title">Nguyễn Văn A</div>
+                                                        <span class="text-small text-muted">Thật tuyệt vời, tôi cảm thấy mọi thứ thật tuyệt.</span>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <img class="mr-3 rounded-circle" width="50" src="~/Content/admin/assets/img/avatar/avatar-2.png" alt="avatar">
+                                                    <div class="media-body">
+                                                        <div class="float-right">12 giờ trước</div>
+                                                        <div class="media-title">Nguyễn Văn E</div>
+                                                        <span class="text-small text-muted">Thật tuyệt vời, tôi cảm thấy mọi thứ thật tuyệt.</span>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <img class="mr-3 rounded-circle" width="50" src="~/Content/admin/assets/img/avatar/avatar-3.png" alt="avatar">
+                                                    <div class="media-body">
+                                                        <div class="float-right">17 giờ trước</div>
+                                                        <div class="media-title">Nguyễn Văn C</div>
+                                                        <span class="text-small text-muted">Thật tuyệt vời, tôi cảm thấy mọi thứ thật tuyệt.</span>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <img class="mr-3 rounded-circle" width="50" src="~/Content/admin/assets/img/avatar/avatar-4.png" alt="avatar">
+                                                    <div class="media-body">
+                                                        <div class="float-right">21 giờ trước</div>
+                                                        <div class="media-title">Nguyễn văn F</div>
+                                                        <span class="text-small text-muted">Thật tuyệt vời, tôi cảm thấy mọi thứ thật tuyệt.</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="text-center pt-1 pb-1">
+                                                <a href="#" class="btn btn-primary btn-lg btn-round">Xem tất cả</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Start app Footer part -->
+                    <footer class="main-footer">
+                        <div class="footer-left">
+                            <div class="bullet"></div>  <a href="https://www.hutech.edu.vn/">Trần Hiển</a>
+                        </div>
+                        <div class="footer-right">
+
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </body>
+        <!-- General JS Scripts -->
+        <script src="~/Content/admin/assets/bundles/lib.vendor.bundle.js"></script>
+        <script src="~/Content/admin/js/CodiePie.js"></script>
+
+        <!-- JS Libraies -->
+        <script src="~/Content/admin/assets/modules/apexcharts/apexcharts.min.js"></script>
+        <script src="~/Content/admin/assets/modules/simple-weather/jquery.simpleWeather.min.js"></script>
+        <script src="~/Content/admin/assets/modules/jqvmap/dist/jquery.vmap.min.js"></script>
+        <script src="~/Content/admin/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script src="~/Content/admin/assets/modules/summernote/summernote-bs4.js"></script>
+        <script src="~/Content/admin/assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+
+        <!-- Page Specific JS File -->
+        <script src="~/Content/admin/js/page/index-0.js"></script>
+
+        <!-- Template JS File -->
+        <script src="~/Content/admin/js/scripts.js"></script>
+        <script src="~/Content/admin/js/custom.js"></script>
+    </div>
+    </div>
+        <!-- index-0.html  Tue, 07 Jan 2020 03:35:42 GMT -->
+</html>

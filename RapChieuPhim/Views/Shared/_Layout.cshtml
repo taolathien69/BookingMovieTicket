@@ -1,0 +1,394 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+
+
+<head>
+    <!-- Favicon icon-->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/Client/Images/logo1.png">
+    <!-- Basic need -->
+    <title>Movie Theater</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <link rel="profile" href="~/Content/Client/#">
+
+    <!--Google Font-->
+    <!-- Mobile Font -->
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone-no">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/Content/Client/CSS/plugins.css">
+    <link rel="stylesheet" href="~/Content/Client/CSS/style.css">
+    <style>
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 14px;
+            color: #999;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .toggle-password-button {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            outline: none;
+            color: black;
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--preloading-->
+    <div id="preloader">
+        <img class="logo" src="~/Content/Client/Images/logo1.png" alt="" width="119" height="58">
+        <div id="status">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!--login form popup-->
+    <div class="login-wrapper" id="login-content">
+        <div class="login-content">
+            <a href="#" class="close">x</a>
+            <h3>Đăng Nhâp</h3>
+            <form method="post" id="loginForm" action="/TaiKhoan/Login">
+                <div class="row">
+                    <label for="username">
+                        Tên Đăng Nhập
+                        <input type="email" name="username" id="usernamelogin" placeholder="Tên Đăng Nhập" required="required" />
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label for="password">
+                        Mật Khẩu
+                        <div class="password-wrapper">
+                            <input type="password" name="password" id="passwordlogin" placeholder="******" required="required" />
+                            <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="fa fa-eye"></i></span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <div class="remember">
+                        <div>
+                            <input type="checkbox" name="remember" id="rememberMe" value="remember">
+                            <span for="rememberMe">Remember me</span>
+                        </div>
+                        <a href="#">Forgot password?</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button type="submit">Đăng Nhập</button>
+                </div>
+            </form>
+            <div class="row">
+                <p>Or via social</p>
+                <div class="social-btn-2">
+                    <a class="fb" href="https://www.facebook.com/"><i class="ion-social-facebook"></i>Facebook</a>
+                    <a class="tw" href="https://twitter.com/"><i class="ion-social-twitter"></i>twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end of login form popup-->
+    <!--signup form popup-->
+    <div class="login-wrapper" id="signup-content">
+        <div class="login-content">
+            <a href="#" class="close">x</a>
+            <h3>Đăng Ký</h3>
+            <form action="/TaiKhoan/Register" method="post" id="registerForm">
+                <div class="row">
+                    <label for="username-2">
+                        Tên Người Dùng
+                        <input type="text" name="username" id="username-2" placeholder="Tên Người Dùng" required="required" />
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label for="email-2">
+                        Email
+                        <input type="email" name="email" id="email-2" placeholder="" required="required" />
+                    </label>
+                </div>
+                <div class="row">
+                    <label for="password-2">
+                        Mật Khẩu
+                        <input type="password" name="password" id="password-2" placeholder="" required="required" />
+                    </label>
+                </div>
+                <div class="row">
+                    <label for="repassword-2">
+                        Nhập Lại Mật Khẩu
+                        <input type="password" name="password" id="repassword-2" placeholder="" required="required" />
+                    </label>
+                </div>
+                <div class="row">
+                    <button type="submit">Đăng Ký</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--end of signup form popup-->
+    <!--end of preloading-->
+    <!-- BEGIN | Header -->
+    @{Html.RenderAction("MainMenu", "Menu");}
+    <!-- END | Header -->
+    @RenderBody()
+
+    <!-- footer section-->
+    <footer class="ht-footer">
+        <div class="container">
+            <div class="flex-parent-ft">
+                <div class="flex-child-ft item1">
+                    <a href="~/Content/Client/index-2.html"><img class="logo" src="~/Content/Client/Images/logo1.png" style="width: 125px;" alt=""></a>
+                    <p>
+                        HUTECH, Khu E<br>
+                        Quận 9, TP.HCM, VIỆT NAM -_-
+                    </p>
+                    <div>Call us: <a href="~/Content/Client/call.png">(+84) 0356 308 114</a></div>
+                </div>
+                <div class="flex-child-ft item2">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="~/Content/Client/#">About</a></li>
+                        <li><a href="~/Content/Client/#">Blockbuster</a></li>
+                        <li><a href="~/Content/Client/#">Contact Us</a></li>
+                        <li><a href="~/Content/Client/#">Forums</a></li>
+                        <li><a href="~/Content/Client/#">Blog</a></li>
+                        <li><a href="~/Content/Client/#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item3">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="~/Content/Client/#">Terms of Use</a></li>
+                        <li><a href="~/Content/Client/#">Privacy Policy</a></li>
+                        <li><a href="~/Content/Client/#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item4">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="~/Content/Client/#">My Account</a></li>
+                        <li><a href="~/Content/Client/#">Watchlist</a></li>
+                        <li><a href="~/Content/Client/#">Collections</a></li>
+                        <li><a href="~/Content/Client/#">User Guide</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item5">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
+                    <form action="#">
+                        <input type="text" placeholder="Enter your email...">
+                    </form>
+                    <a href="https://www.facebook.com/anhyeuthihue" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="ft-copyright">
+            <div class="ft-left">
+                <p>
+                    <a target="_blank" href="https://ladipage.vn/">
+                        <div style="border: 1px solid black; width: 300px; height: 50px; overflow: hidden;">
+                            <marquee direction="left" scrollamount="5">
+                                Web được vận hành bởi Hiển Trần!
+                            </marquee>
+                        </div>
+                    </a>
+                </p>
+            </div>
+            <div class="backtotop">
+                <p><a id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer section-->
+
+    <script src="~/Content/Client/js/jquery.js"></script>
+    <script src="~/Content/Client/js/plugins.js"></script>
+    <script src="~/Content/Client/js/plugins2.js"></script>
+    <script src="~/Content/Client/js/custom.js"></script>
+    <script type="text/javascript">
+        $('#loginForm').on('submit', function checkLogin(e) {
+            e.preventDefault();
+
+            var username = $('#usernamelogin').val();
+            var password = $('#passwordlogin').val();
+            $.ajax({
+                url: '/TaiKhoan/Login',
+                type: "POST",
+                data: {
+                    username: username,
+                    password: password,
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response.success) {
+                        alert("Bạn đã đăng nhập thành công");
+                        window.location.href = "/Home";
+                    } else {
+                        if (response.message === "inactive") {
+                            alert("Tài khoản của bạn chưa được kích hoạt.");
+                        } else {
+                            alert("Tên đăng nhập hoặc mật khẩu không chính xác.");
+                        }
+                    }
+                }
+            });
+        });
+
+    </script>
+    <script type="text/javascript">
+        $('#registerForm').on('submit', function (e) {
+            e.preventDefault();
+
+            var username = $('#username-2').val();
+            var email = $('#email-2').val();
+            var password = $('#password-2').val();
+            var repassword = $('#repassword-2').val();
+
+            if (repassword != password) {
+                alert("Mật khẩu không trùng khớp");
+                return;
+            }
+
+            $.ajax({
+                url: '/TaiKhoan/Register',
+                type: "POST",
+                data: {
+                    username: username,
+                    password: password,
+                    email: email
+                },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        window.location.href = "/Home";
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var modal = $('.modal');
+            var btn = $('#checkSo');
+            var span = $('.close');
+
+            btn.click(function () {
+                modal.show();
+            });
+
+            span.click(function () {
+                modal.hide();
+            });
+
+            $(window).on('click', function (e) {
+                if ($(e.target).is('.modal')) {
+                    modal.hide();
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_flat-blue',
+                radioClass: 'iradio_flat-blue'
+            });
+
+
+            $(".bank-item").click(function () {
+                $(".bank-item").removeClass("selected");
+                $(this).addClass("selected");
+            });
+        });
+    </script>
+
+    <script>
+        // Kiểm tra xem trạng thái "Remember Me" đã được lưu trước đó
+        window.onload = function () {
+            var rememberMeCheckbox = document.getElementById('rememberMe');
+            var storedUsername = localStorage.getItem('username');
+            var storedPassword = localStorage.getItem('password');
+
+            if (storedUsername && storedPassword) {
+                rememberMeCheckbox.checked = true;
+                document.getElementById('usernamelogin').value = storedUsername;
+                document.getElementById('passwordlogin').value = storedPassword;
+            }
+        };
+
+        // Xử lý sự kiện submit form đăng nhập
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            var rememberMeCheckbox = document.getElementById('rememberMe');
+            var usernameInput = document.getElementById('usernamelogin');
+            var passwordInput = document.getElementById('passwordlogin');
+
+            if (rememberMeCheckbox.checked) {
+                // Lưu thông tin đăng nhập vào Local Storage
+                localStorage.setItem('username', usernameInput.value);
+                localStorage.setItem('password', passwordInput.value);
+            } else {
+                // Xóa thông tin đăng nhập từ Local Storage
+                localStorage.removeItem('username');
+                localStorage.removeItem('password');
+            }
+        });
+    </script>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("passwordlogin");
+            var toggleButton = document.getElementsByClassName("toggle-password")[0];
+            var eyeIcon = toggleButton.querySelector("i");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+
+    </script>
+
+
+</body>
+
+
+</html>

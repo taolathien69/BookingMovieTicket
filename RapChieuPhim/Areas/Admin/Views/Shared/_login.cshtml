@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Đăng Nhập Quản trị</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link href="~/Content/admin/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="h-100">
+    @RenderBody()
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="~/Content/admin/vendor/global/global.min.js"></script>
+    <script src="~/Content/admin/js/quixnav-init.js"></script>
+    <script src="~/Content/admin/js/custom.min.js"></script>
+    <script src="~/Content/Client/js/jquery.js"></script>
+
+    <script type="text/javascript">
+        $('#loginAdmin').on('submit', function checkLoginAdmin(e) {
+            e.preventDefault();
+            var username = $('#usernamelogin').val();
+            var password = $('#passwordlogin').val();
+            $.ajax({
+                url: '/Admin/Login/LoginAdmin',
+                type: "POST",
+                data: {
+                    username: username,
+                    password: password,
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response == '2') {
+                        alert("Bạn đã đăng nhập thành công");
+                        window.location.href = "/Admin/phims";
+                    } else if (response == '1') {
+                        alert("Tài khoản của bạn không được cho phép");
+                    } else {
+                        alert("Tên Tài Khoản và Mật Khẩu không đúng");
+
+                    }
+                }
+            })
+        });
+
+    </script>
+
+</body>
+
+</html>

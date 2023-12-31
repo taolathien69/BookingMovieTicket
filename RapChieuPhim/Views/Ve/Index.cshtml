@@ -1,0 +1,134 @@
+﻿@model RapChieuPhim.Models.Vee
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="hero user-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1>Edward kennedy’s profile</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span>Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-single">
+    @{ var phim = (RapChieuPhim.ViewModel.PhimViewModel)ViewData["phimmodel"];
+        var taikhoan = (RapChieuPhim.Models.TaiKhoann)Session["USERSESSIO"];}
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="user-information">
+                    <div class="user-img">
+                        <a href="#"><img src="/Content/Upload/Image/@phim.AnhPhim" alt=""><br></a>
+                    </div>
+                    <div class="user-fav">
+                        <h3>@phim.TenPhim</h3>
+                        <ul>
+                            <li class="active"><a>Năm :@phim.NamPhatHanh</a></li>
+                            <li><a>Thể Loại:@phim.TenLoai</a></li>
+                            <li><a>Thời Lượng:@phim.ThoiLuong (phút)</a></li>
+                            <li><a>Đạo Diễn:@phim.DaoDien </a></li>
+                            <li><a>Diễn Viên:@phim.DienVien </a></li>
+                            <li><a>Ngày Công Chiếu:@phim.NgayCongChieu </a></li>
+                            <li><a>Ngày Kết Thúc:@phim.NgayKetThuc </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="form-style-1 user-pro" action="#">
+                    <form action="/Ve/Create" class="user" method="get">
+                        <h4>Đặt Vé Xem Phim</h4>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>Tên Người Dùng</label>
+                                <input type="text" value="@taikhoan.ThongTin.TenNguoiDung" placeholder="Tên Người Nhận Vé" name="username" disabled>
+                            </div>
+                            <div class="col-md-6 form-it">
+                                <label>Email</label>
+                                <input type="text" value="@taikhoan.ThongTin.Email" placeholder="email" name="email" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>Lịch Chiếu</label>
+                                <select name="showtimes">
+                                    @foreach (var lichchieu in ViewData["Showtimes"] as List<RapChieuPhim.Models.LichChieuu>)
+                                    {
+                                        <option value="@lichchieu.Id">Ngày:@lichchieu.NgayChieu.ToString("dd/MM/yyyy"):@lichchieu.GioBatDau-@lichchieu.GioKetThuc</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-it">
+                                <label>Số Lượng Ghế</label>
+                                <input type="number" placeholder="" name="numberchair" min="1">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>Rap Chiếu Phim</label>
+                                <select name="cinema">
+                                    @foreach (var rapphim in ViewData["listCinema"] as List<RapChieuPhim.Models.RapPhimm>)
+                                    {
+                                        <option value="@rapphim.Id">@rapphim.TenRapChieu</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-it">
+                                <label>Ghế</label>
+                                <select name="chair">
+                                    @foreach (var chair in ViewData["listChair"] as List<RapChieuPhim.Models.Ghee>)
+                                    {
+                                        <option value="@chair.ghe_id">Tên Ghế:@chair.TenGhe+:Loại ghế:@chair.LoaiGhe.TenLoaiGhe</option>
+                                    }
+                                </select>
+                                <a class='btn btn-outline-primary' id="checkSo">Xem Sờ ĐỒ GHẾ</a>
+                                <div class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <br />
+                                        <br />
+                                        <div class="card justify-content-center" style="background-color: transparent">
+
+                                            <img style="margin-left:450px; height:500px;" src="~/Content/Client/Images/uploads/char.png" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>Thanh Toán </label>
+                                <div class="radio">
+                                    <label><input type="radio" name="payment" value="offline" checked>Thanh Toán Toán Tại Quẩy</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="payment" value="online">Thanh Toán VNPay</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input class="submit" type="submit" value="Đặt vé">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

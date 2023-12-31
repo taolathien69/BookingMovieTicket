@@ -1,0 +1,128 @@
+﻿@model IEnumerable<RapChieuPhim.Models.LoaiPhimm>
+
+<header class="ht-header">
+    <div class="container">
+        <nav class="navbar navbar-default navbar-custom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header logo">
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <a href="~/Content/Client/index-2.html"><img class="logo" src="~/Content/Client/Images/logo1.PNG" alt="" width="119" height="58"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav flex-child-menu menu-left">
+                    <li class="hidden">
+                        <a href="~/Content/Client/#"></a>
+                    </li>
+                    <li class="dropdown first">
+                        <a href="https://localhost:44363/Home/Index">
+                            Trang Chủ
+                        </a>
+                    </li>
+                    <li class="dropdown first">
+                        <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                            Thể Loại<i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu level1">
+                            @foreach (var theloai in Model)
+                            {
+                                <li><a href="@Url.Action("Index","Phims", new { genre = theloai.Id})">@theloai.TenLoai</a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li class="dropdown first">
+                        <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                            Tin Tức <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu level1">
+                            <li><a href="~/Content/Client/bloglist.html">Tin cũ</a></li>
+                            <li><a href="~/Content/Client/bloglist2.html">Tin mới</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="/Ve/History">
+                                <img src="~/Content/Client/Images/uploads/history-icon.png" alt="history" style="position: relative; left: 90px;">
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav flex-child-menu menu-right">
+                    <li class="dropdown first">
+                        <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                            pages <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu level1">
+                            @*https://ladipage.vn/*@
+                            <li><a href="~/Content/Client/Loicamon.html">Lời cảm ơn</a></li>
+                            <li><a href="~/Content/Client/Giamgia.html"> Giảm giá</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="~/Content/Client/Help.html">Help</a></li>
+                    <ul class="nav navbar-nav flex-child-menu menu-right">
+                        @if (Session["USERSESSIO"] != null)
+                        {
+                            var tai = (RapChieuPhim.Models.TaiKhoann)Session["USERSESSIO"];
+                            <li class="dropdown first">
+                                @if (tai.PhanQuyen.Equals("USER"))
+                                {
+                                    <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                        @tai.ThongTin.TenNguoiDung
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="/Admin/Home" class="btn btn-default dropdown-toggle lv1">
+                                        Quản Trị Web
+                                    </a>
+                                }
+                            </li>
+                            <li><a href="/TaiKhoan/Logout">Đăng Xuất</a></li>
+                        }
+                        else
+                        {
+                            <li class="loginLink"><a href="~/Content/Client/#">Đăng Nhập </a></li>
+                            <li class="btn signupLink"><a href="~/Content/Client/#">Đăng Ký</a></li>
+                        }
+                    </ul>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <!-- top search form -->
+        @using (Html.BeginForm("Index", "Phims", FormMethod.Post))
+        {
+            <div class="top-search">
+                @*<select id="searchOption">
+            <option value="united"></option>
+            <option value="saab"></option>
+        </select>*@
+                <input type="text" id="searchInput" name="searchString" placeholder="Hãy tìm kiếm những bộ phim mà bạn cần ở đây!!!">
+                <form>
+                    <input type="submit" value="" id="submit-btn">
+                </form>
+
+            </div>
+        }
+    </div>
+</header>
+
+<body>
+    <style>
+        #submit-btn {
+            background-image: url(/Content/Client/Images/uploads/searching.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-left: 60px; /* điều chỉnh padding */
+        }
+    </style>
+    <ul id="resultsList"></ul>
+</body>

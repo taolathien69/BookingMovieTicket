@@ -1,0 +1,119 @@
+﻿@model RapChieuPhim.Models.Vee
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .btn-danger {
+        background-color: #dc3545; /* Màu nền cho nút Delete */
+        border-color: #dc3545; /* Màu viền cho nút Delete */
+        color: white; /* Màu chữ */
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333; /* Màu nền khi hover */
+        }
+
+    .btn-secondary {
+        background-color: #6c757d; /* Màu nền cho nút Back to List */
+        border-color: #6c757d; /* Màu viền cho nút Back to List */
+        color: white; /* Màu chữ */
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Màu nền khi hover */
+        }
+</style>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Chào Mừng Bạn đến Với HỆ THÔNG</h4>
+                    <p class="mb-1">Validation</p>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Validation</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Form Validation</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.LichChieu.GioBatDau)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.LichChieu.GioBatDau)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.RapPhim.TenRapChieu)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.RapPhim.TenRapChieu)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.TaiKhoan.TenDangNhap)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.TaiKhoan.TenDangNhap)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.NgayDat)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.NgayDat)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.GiaVe)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.GiaVe)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Soluong)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Soluong)
+                                </dd>
+
+                            </dl>
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

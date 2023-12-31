@@ -1,0 +1,73 @@
+﻿@model IEnumerable<RapChieuPhim.Models.Vee>
+
+@{
+    ViewBag.Title = "Quản Lý Vé";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .data-table th, .data-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .data-table th {
+        background-color: #f2f2f2;
+    }
+
+    .data-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .data-table tr:hover {
+        background-color: #ddd;
+    }
+
+    .data-table .action-buttons a {
+        margin-right: 10px;
+    }
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <!-- Existing HTML code for the container and header -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn btn-primary" href="/Admin/Ves/Create">Thêm Vé Mới</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="dataTables-ve" class="display data-table" style="width: 100%;">
+                                <thead>
+                                    <!-- Table header -->
+                                </thead>
+                                <tbody style="color: #343957;">
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.LichChieu.GioBatDau)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.RapPhim.TenRapChieu)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.TaiKhoan.TenDangNhap)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.NgayDat)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.GiaVe)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Soluong)</td>
+                                            <td class="action-buttons">
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                                                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-secondary btn-sm" })
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

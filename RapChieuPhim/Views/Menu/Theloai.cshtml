@@ -1,0 +1,28 @@
+﻿@model IEnumerable<RapChieuPhim.Models.Phimm>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Danh sách phim theo thể loại</title>
+</head>
+<body>
+    <div>
+        <h2>Danh sách phim theo thể loại</h2>
+        @foreach (var phim in Model)
+        {
+            <div>
+                <h3>@phim.TenPhim</h3>
+                <p>@phim.MoTa</p>
+                <p>@phim.AnhPhim</p>
+                <!-- Hiển thị các thông tin khác về phim -->
+            </div>
+        }
+    </div>
+</body>
+</html>
